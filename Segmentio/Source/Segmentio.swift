@@ -120,6 +120,8 @@ open class Segmentio: UIView {
             case .topAndBottom:
                 collectionViewFrameMinY = separatorHeight
                 separatorsHeight = separatorHeight * 2
+            case .none:
+                break
             }
         }
         
@@ -517,6 +519,8 @@ open class Segmentio: UIView {
             indicatorPointY = isIndicatorTop ? indicatorPointY : indicatorPointY - separatorHeight
         case .topAndBottom:
             indicatorPointY = isIndicatorTop ? indicatorPointY + separatorHeight : indicatorPointY - separatorHeight
+        case .none:
+            break
         }
         
         return indicatorPointY
