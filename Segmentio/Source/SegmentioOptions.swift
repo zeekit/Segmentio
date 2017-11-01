@@ -157,7 +157,7 @@ public typealias SegmentioStates = (defaultState: SegmentioState, selectedState:
 public struct SegmentioOptions {
     
     var backgroundColor: UIColor
-    var maxVisibleItems: Int
+    var maxVisibleItems: Double
     var scrollEnabled: Bool
     var horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?
     var verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?
@@ -190,7 +190,7 @@ public struct SegmentioOptions {
         self.animationDuration = 0.1
     }
     
-    public init(backgroundColor: UIColor, maxVisibleItems: Int, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?, verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?, imageContentMode: UIViewContentMode, labelTextAlignment: NSTextAlignment, labelTextNumberOfLines: Int, segmentStates: SegmentioStates, animationDuration: CFTimeInterval) {
+    public init(backgroundColor: UIColor, maxVisibleItems: Double, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?, verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?, imageContentMode: UIViewContentMode, labelTextAlignment: NSTextAlignment, labelTextNumberOfLines: Int, segmentStates: SegmentioStates, animationDuration: CFTimeInterval) {
         self.backgroundColor = backgroundColor
         self.maxVisibleItems = maxVisibleItems
         self.scrollEnabled = scrollEnabled
