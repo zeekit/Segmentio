@@ -96,7 +96,6 @@ open class Segmentio: UIView {
         collectionView.bounces = true
         collectionView.isScrollEnabled = segmentioOptions.scrollEnabled
         collectionView.backgroundColor = .clear
-        collectionView.accessibilityIdentifier = "segmentio_collection_view"
         
         segmentioCollectionView = collectionView
         
@@ -113,8 +112,6 @@ open class Segmentio: UIView {
             let separatorHeight = horizontalSeparatorOptions.height
             
             switch horizontalSeparatorOptions.type {
-            case .none:
-                separatorsHeight = 0
             case .top:
                 collectionViewFrameMinY = separatorHeight
                 separatorsHeight = separatorHeight
@@ -254,7 +251,7 @@ open class Segmentio: UIView {
             bottomSeparatorView = UIView(frame: CGRect.zero)
             setupConstraintsForSeparatorView(
                 separatorView: bottomSeparatorView,
-                originY: bounds.maxY - height
+                originY: frame.maxY - height
             )
         }
     }
@@ -272,7 +269,7 @@ open class Segmentio: UIView {
             item: separatorView,
             attribute: .top,
             relatedBy: .equal,
-            toItem: self,
+            toItem: superview,
             attribute: .top,
             multiplier: 1,
             constant: originY
@@ -468,7 +465,7 @@ open class Segmentio: UIView {
         
         if let collectionView = segmentioCollectionView {
             collectionViewWidth = collectionView.frame.width
-            let maxVisibleItems = segmentioOptions.maxVisibleItems > segmentioItems.count ? CGFloat(segmentioItems.count) : CGFloat(segmentioOptions.maxVisibleItems)
+            let maxVisibleItems = Int(segmentioOptions.maxVisibleItems) > segmentioItems.count ? CGFloat(segmentioItems.count) : CGFloat(segmentioOptions.maxVisibleItems)
             cellWidth = floor(collectionViewWidth / maxVisibleItems)
             
             cellRect = CGRect(
@@ -514,8 +511,6 @@ open class Segmentio: UIView {
         let isIndicatorTop = indicatorOptions.type == .top
         
         switch horizontalSeparatorOptions.type {
-        case .none:
-            break
         case .top:
             indicatorPointY = isIndicatorTop ? indicatorPointY + separatorHeight : indicatorPointY
         case .bottom:
@@ -541,20 +536,14 @@ extension Segmentio: UICollectionViewDataSource {
             withReuseIdentifier: segmentioStyle.rawValue,
             for: indexPath) as! SegmentioCell
         
-        let content = segmentioItems[indexPath.row]
-        
         cell.configure(
-            content: content,
+            content: segmentioItems[indexPath.row],
             style: segmentioStyle,
             options: segmentioOptions,
             isLastCell: indexPath.row == segmentioItems.count - 1
         )
         
-        cell.configure(
-            selected: (indexPath.row == selectedSegmentioIndex),
-            selectedImage: content.selectedImage,
-            image: content.image
-        )
+        cell.configure(selected: (indexPath.row == selectedSegmentioIndex))
         
         return cell
     }
@@ -580,7 +569,7 @@ extension Segmentio: UICollectionViewDelegate {
 extension Segmentio: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxVisibleItems = segmentioOptions.maxVisibleItems > segmentioItems.count ? CGFloat(segmentioItems.count) : CGFloat(segmentioOptions.maxVisibleItems)
+        let maxVisibleItems = segmentioOptions.maxVisibleItems > Double(segmentioItems.count) ? CGFloat(segmentioItems.count) : CGFloat(segmentioOptions.maxVisibleItems)
         return CGSize( width: floor(collectionView.frame.width / maxVisibleItems), height: collectionView.frame.height)
     }
     
