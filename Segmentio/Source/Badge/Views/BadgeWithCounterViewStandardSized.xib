@@ -4,7 +4,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -13,20 +19,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="d4V-GG-9pR" userLabel="Background Image View" customClass="RoundImageView" customModule="Segmentio" customModuleProvider="target">
-                    <rect key="frame" x="-2" y="-1" width="32.5" height="20"/>
+                    <rect key="frame" x="4.5" y="-0.5" width="20" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="Nld-O1-MJv"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="d4V-GG-9pR" secondAttribute="height" id="cCQ-lW-OUm"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="99+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="ech-Mu-YMM" userLabel="Counter Value Label">
-                    <rect key="frame" x="2.5" y="1" width="25" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="5" y="1.5" width="19" height="15"/>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="11"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.3529411764705882" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ech-Mu-YMM" firstAttribute="centerY" secondItem="d4V-GG-9pR" secondAttribute="centerY" id="3TE-QX-wNX"/>
                 <constraint firstItem="ech-Mu-YMM" firstAttribute="centerX" secondItem="d4V-GG-9pR" secondAttribute="centerX" id="QJJ-ap-dbB"/>
