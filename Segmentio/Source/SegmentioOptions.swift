@@ -162,7 +162,7 @@ public struct SegmentioOptions {
     var horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?
     var verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?
     var indicatorOptions: SegmentioIndicatorOptions?
-    var imageContentMode: UIViewContentMode
+    var imageContentMode: UIView.ContentMode
     var labelTextAlignment: NSTextAlignment
     var labelTextNumberOfLines: Int
     var states: SegmentioStates
@@ -190,7 +190,7 @@ public struct SegmentioOptions {
         self.animationDuration = 0.1
     }
     
-    public init(backgroundColor: UIColor, maxVisibleItems: Double, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?, verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?, imageContentMode: UIViewContentMode, labelTextAlignment: NSTextAlignment, labelTextNumberOfLines: Int, segmentStates: SegmentioStates, animationDuration: CFTimeInterval) {
+    public init(backgroundColor: UIColor, maxVisibleItems: Double, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?, verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?, imageContentMode: UIView.ContentMode, labelTextAlignment: NSTextAlignment, labelTextNumberOfLines: Int, segmentStates: SegmentioStates, animationDuration: CFTimeInterval) {
         self.backgroundColor = backgroundColor
         self.maxVisibleItems = maxVisibleItems
         self.scrollEnabled = scrollEnabled
